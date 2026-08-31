@@ -30,7 +30,12 @@ app.use(cors({
 
 origin : (origin , callback) => {
 
-if(!origin.includes("http://localhost") || origin.endsWith(".vercel.app")) {
+
+   if (!origin) {
+      return callback(null, true);
+    }
+
+if(origin.includes("http://localhost") || origin.endsWith(".vercel.app")) {
 
 
 callback( null , origin )
