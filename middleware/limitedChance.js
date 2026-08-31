@@ -33,32 +33,32 @@ const lastDate = user.lastAttemptsDate ? user.lastAttemptsDate.toDateString() : 
 
 
 
-if( lastDate !==today ) {
+// if( lastDate !==today ) {
 
-user.attempts = 0 // قيمة صفرية قيمة ديفولت نبدأ بقي نجددلوة محاولات لو في حالة اليوم وتاريخ انهاردة مش نفس تاريخ انهاردة جددلوة محاولات خلية يبقي عندوة محاولات جديدة في يوم جديد وبتاريخ جديد ويوم جديد 
+// user.attempts = 0 // قيمة صفرية قيمة ديفولت نبدأ بقي نجددلوة محاولات لو في حالة اليوم وتاريخ انهاردة مش نفس تاريخ انهاردة جددلوة محاولات خلية يبقي عندوة محاولات جديدة في يوم جديد وبتاريخ جديد ويوم جديد 
 
-user.lastAttemptsDate = new Date() // بنسجل تاريخ واليوم عمل فية محاولات في يوم دة
-
-
-// Sat Aug 29 2026 !== Sat Aug 29 2026 الشرط دة مش هيتنفذ عشان طبعا دة نفس يوم فمش هيجددلوة محاولة
-
-// Sat Aug 29 2026 === Sat Aug 30 2026 هيجددلوة محاولة لانهم مش نفس تاريخ ولا نفس يوم
-
-}
+// user.lastAttemptsDate = new Date() // بنسجل تاريخ واليوم عمل فية محاولات في يوم دة
 
 
+// // Sat Aug 29 2026 !== Sat Aug 29 2026 الشرط دة مش هيتنفذ عشان طبعا دة نفس يوم فمش هيجددلوة محاولة
 
+// // Sat Aug 29 2026 === Sat Aug 30 2026 هيجددلوة محاولة لانهم مش نفس تاريخ ولا نفس يوم
 
-if(user.attempts >= 10) {
-
-
-return res.status(403).json({ message : "You've used all your free attempts , please try it tomorrow" })
-
-}
+// }
 
 
 
-user.attempts +=1 // يبدأ يزود ويديلوة محاولات لحد ما يخلصها ويوصل لحد رقم 5 اول ما يوصل رقم 5 كدة انت عديت الحد الادني اليومي يبقي تعالي بكرة وجرب تاني
+
+// if(user.attempts >= 10) {
+
+
+// return res.status(403).json({ message : "You've used all your free attempts , please try it tomorrow" })
+
+// }
+
+
+
+// user.attempts +=1 // يبدأ يزود ويديلوة محاولات لحد ما يخلصها ويوصل لحد رقم 5 اول ما يوصل رقم 5 كدة انت عديت الحد الادني اليومي يبقي تعالي بكرة وجرب تاني
 
 
 await user.save()
